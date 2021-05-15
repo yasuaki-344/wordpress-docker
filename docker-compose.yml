@@ -23,8 +23,8 @@ services:
       - database
     environment:
       WORDPRESS_DB_HOST: database
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
       WORDPRESS_DB_USER: ${MYSQL_USER}
       WORDPRESS_TABLE_PREFIX: mi_
     networks:
