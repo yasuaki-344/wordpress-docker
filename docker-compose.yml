@@ -19,6 +19,7 @@ services:
     image: wordpress:php7.4-fpm-alpine
     volumes:
       - ./data/wordpress:/var/www/html
+      - ./wordpress/languages:/var/www/html/wp-content/languages
     depends_on:
       - database
     environment:
