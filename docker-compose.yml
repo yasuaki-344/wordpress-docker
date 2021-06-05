@@ -16,7 +16,7 @@ services:
     restart: always
   wordpress:
     container_name: wordpress-app
-    image: wordpress:php7.4-fpm-alpine
+    build: ./wordpress
     volumes:
       - ./data/wordpress:/var/www/html
     depends_on:
