@@ -16,10 +16,11 @@ services:
     restart: always
   wordpress:
     container_name: wordpress-app
-    image: wordpress:php7.4-fpm-alpine
+    build:
+      context: ./wordpress
+      dockerfile: Dockerfile
     volumes:
       - ./data/wordpress:/var/www/html
-      - ./wordpress/languages:/var/www/html/wp-content/languages
     depends_on:
       - database
     environment:
