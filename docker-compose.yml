@@ -16,9 +16,7 @@ services:
     restart: always
   wordpress:
     container_name: wordpress-app
-    build:
-      context: ./wordpress
-      dockerfile: Dockerfile
+    build: ./wordpress
     volumes:
       - ./data/wordpress:/var/www/html
       - ./wordpress/languages/:/var/www/html/wp-content/languages/
@@ -36,9 +34,7 @@ services:
     restart: always
   nginx:
     container_name: wordpress-web
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile
+    build: ./nginx
     volumes:
       - ./data/log/nginx:/var/log/nginx
       - ./data/wordpress:/var/www/html
