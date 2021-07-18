@@ -2,7 +2,7 @@ version: '3.7'
 services:
   database:
     container_name: wordpress-db
-    image: mariadb
+    build: ./mariadb
     volumes:
       - ./data/mysql:/var/lib/mysql
     environment:
