@@ -27,6 +27,10 @@ services:
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
       WORDPRESS_DB_USER: ${MYSQL_USER}
       WORDPRESS_TABLE_PREFIX: mi_
+      HTTP_PROXY: ${HTTP_PROXY}
+      http_proxy: ${HTTP_PROXY}
+      HTTPS_PROXY: ${HTTPS_PROXY}
+      https_proxy: ${HTTPS_PROXY}
     dns:
       - 8.8.8.8
     networks:
