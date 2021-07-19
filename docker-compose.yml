@@ -4,7 +4,7 @@ services:
     container_name: wordpress-db
     build: ./mariadb
     volumes:
-      - ./data/mysql:/var/lib/mysql
+      - ${DATABASE_VOLUME}:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -18,7 +18,7 @@ services:
     container_name: wordpress-app
     build: ./wordpress
     volumes:
-      - ./data/wordpress:/var/www/html
+      - ${WORDPRESS_VOLUME}:/var/www/html
     depends_on:
       - database
     environment:
@@ -27,8 +27,12 @@ services:
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
       WORDPRESS_DB_USER: ${MYSQL_USER}
       WORDPRESS_TABLE_PREFIX: mi_
+      HTTP_PROXY: ${HTTP_PROXY}
+      http_proxy: ${HTTP_PROXY}
+      HTTPS_PROXY: ${HTTPS_PROXY}
+      https_proxy: ${HTTPS_PROXY}
     dns:
-      - 8.8.8.8
+      - ${NAME_SERVER}
     networks:
       - frontend
       - backend
@@ -37,8 +41,8 @@ services:
     container_name: wordpress-web
     build: ./nginx
     volumes:
-      - ./data/log/nginx:/var/log/nginx
-      - ./data/wordpress:/var/www/html
+      - ${NGINX_LOG_VOLUME}:/var/log/nginx
+      - ${WORDPRESS_VOLUME}:/var/www/html
     depends_on:
       - wordpress
     ports:
