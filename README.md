@@ -11,8 +11,18 @@ Change following items:
 * `MYSQL_USER`
 * `MYSQL_PASSWORD`
 
-If you want to change port number,
-change following item:
+To resolve DNS name in the container, set following DNS setting:
+
+* `NAME_SERVER`
+
+If you run create or run the container in proxy environment,
+set following environment variables:
+
+* `HTTP_PROXY`
+* `HTTPS_PROXY`
+* `NO_PROXY`
+
+If you want to change port number, change following item:
 
 * `NGINX_HOST_PORT`
 
