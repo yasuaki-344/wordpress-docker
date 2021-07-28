@@ -1,5 +1,15 @@
 @startuml "network-diagram"
 nwdiag {
+  internet [shape = cloud];
+  internet -- nginx;
 
+  network frontend {
+    nginx;
+    wordpress;
+  }
+  network backend {
+    wordpress;
+    database [shape = database];
+  }
 }
 @enduml
