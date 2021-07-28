@@ -3,6 +3,13 @@ nwdiag {
   internet [shape = cloud];
   internet -- nginx;
 
+  group {
+    description = "docker-compose";
+    nginx;
+    wordpress;
+    database;
+  }
+
   network frontend {
     nginx;
     wordpress;
