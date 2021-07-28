@@ -1,0 +1,22 @@
+@startuml "network-diagram"
+nwdiag {
+  internet [shape = cloud];
+  internet -- nginx;
+
+  group {
+    description = "docker-compose";
+    nginx;
+    wordpress;
+    database;
+  }
+
+  network frontend {
+    nginx;
+    wordpress;
+  }
+  network backend {
+    wordpress;
+    database [shape = database];
+  }
+}
+@enduml
