@@ -18,6 +18,6 @@ jobs:
       run: echo "test:$(openssl passwd -apr1 test)" >> "./nginx/.htpasswd"
     - name: Build the Docker image
       run: |
-        docker build . --file ./mariadb/Dockerfile --tag wordpress-db:$(date +%s)
-        docker build . --file ./wordpress/Dockerfile --tag wordpress-app$(date +%s)
-        docker build . --file ./nginx/Dockerfile --tag wordpress-web:$(date +%s)
+        docker build ./mariadb --file ./mariadb/Dockerfile --tag wordpress-db:$(date +%s)
+        docker build ./wordpress --file ./wordpress/Dockerfile --tag wordpress-app$(date +%s)
+        docker build ./nginx --file ./nginx/Dockerfile --tag wordpress-web:$(date +%s)
