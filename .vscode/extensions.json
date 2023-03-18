@@ -3,6 +3,7 @@
         "ms-azuretools.vscode-docker",
         "editorconfig.editorconfig",
         "streetsidesoftware.code-spell-checker",
-        "davidanson.vscode-markdownlint"
+        "davidanson.vscode-markdownlint",
+        "exiasr.hadolint"
     ]
 }
