@@ -35,5 +35,5 @@ echo "<user>:$(openssl passwd -apr1 <password>)" >> "./nginx/.htpasswd"
 ## Launch Docker containers
 
 ```shell
-docker-compose up -d
+docker compose up -d
 ```
