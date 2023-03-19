@@ -26,9 +26,19 @@ jobs:
         tags: wordpress-web:latest
         cache-from: type=gha,scope=web
         cache-to: type=gha,mode=max,scope=web
-
-    # - name: Build the Docker image
-    #   run: |
-    #     docker build ./mariadb --file ./mariadb/Dockerfile --tag wordpress-db:$(date +%s)
-    #     docker build ./wordpress --file ./wordpress/Dockerfile --tag wordpress-app$(date +%s)
-    #     docker build ./nginx --file ./nginx/Dockerfile --tag wordpress-web:$(date +%s)
+    - name: Build app image
+      uses: docker/build-push-action@v4
+      with:
+        context: ./wordpress
+        push: false
+        tags: wordpress-app:latest
+        cache-from: type=gha,scope=app
+        cache-to: type=gha,mode=max,scope=app
+    - name: Build database image
+      uses: docker/build-push-action@v4
+      with:
+        context: ./mariadb
+        push: false
+        tags: wordpress-db:latest
+        cache-from: type=gha,scope=db
+        cache-to: type=gha,mode=max,scope=db
